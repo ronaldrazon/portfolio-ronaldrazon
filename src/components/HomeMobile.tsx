@@ -102,6 +102,11 @@ export function HomeExplore() {
           <span className="hproof__meta">PLACEHOLDER - client role</span>
         </span>
       </Link>
+
+      {/* --- COPYRIGHT STRIP FOR MOBILE --- */}
+      <footer className="mt-8 mb-6 text-center text-xs text-neutral-500">
+        &copy; {new Date().getFullYear()} {profile.name}. All rights reserved.
+      </footer>
     </>
   )
 }
