@@ -4,9 +4,6 @@ import { profile } from '@/data/profile'
 
 /**
  * AboutGrid - the About view as a fixed viewport.
- *
- * One glass sheet, two columns: who you are on the left, the illustration
- * on the right. Sized to the panel, so nothing here scrolls.
  */
 
 const N8N = { src: '/icons/ai/n8n.svg', name: 'n8n' }
@@ -33,22 +30,22 @@ type Capability = {
 const CAPABILITIES: Capability[] = [
   {
     index: '01',
-    title: 'Workflow Automation & DevOps',
+    title: 'Project Management',
     marks: [N8N, ZAPIER, DOCKER],
   },
   {
     index: '02',
-    title: 'AI Engineering & LLM Integration',
+    title: 'e-Commerce Operations',
     marks: [CLAUDE, CODEX, GLM, QWEN, HERMES],
   },
   {
     index: '03',
-    title: 'Full-Stack Web Development & Infrastructure',
+    title: 'Digital Marketing',
     marks: [CLAUDE, CODEX, NAMECHEAP, CLOUDFLARE, GITHUB],
   },
   {
     index: '04',
-    title: 'Operations & Business Productivity Tools',
+    title: 'Workflow Automation',
     marks: [GWS, SLACK, FIREFLIES],
   },
 ]
@@ -59,26 +56,22 @@ export default function AboutGrid() {
       <header className="pgrid__head">
         <span className="pgrid__eyebrow">About</span>
         <h1 className="pgrid__title" id="about-title">
-          {`Hi, I’m ${profile.firstName}.`}
+          Hi, I’m Ron.
         </h1>
         <p className="pgrid__lede">
-          Full-Stack Developer & AI Systems Engineer building scalable web applications.
+          Operations & Marketing Operations specialist focused on scaling e-commerce systems and streamlining workflows.
         </p>
       </header>
 
       <div className="home__glass agrid__glass">
         <div className="agrid__copy">
           <p className="agrid__lead">
-            I engineer fast, resilient web applications and intelligent automated systems.
-            <span> Bridging modern UI development with AI-driven operations.</span>
+            Optimizing operational efficiency and driving digital growth.
+            <span> Connecting modern marketing strategy with seamless automated execution.</span>
           </p>
 
           <p className="agrid__note">
-            <strong>Full-Stack Development</strong> &{' '}
-            <a className="agrid__link" href="https://github.com/ronaldrazon" target="_blank" rel="noopener noreferrer">
-              Automated Workflows
-            </a>{' '}
-            — Specializing in React, TypeScript, cloud deployments, and custom AI integrations that streamline business operations.
+            Specializing in end-to-end e-commerce management, cross-functional project coordination, and automated workflows that eliminate friction and scale performance.
           </p>
 
           <ul className="agrid__caps" role="list">
@@ -103,17 +96,20 @@ export default function AboutGrid() {
             ))}
           </ul>
 
-          {/* Bottom metadata grid */}
+          {/* Bottom metadata grid - Text card for Klika & Location/Timezone */}
           <div className="agrid__bar">
-            <span className="agrid__cell">
-              <span className="agrid__cell-mark agrid__cell-mark--img">
-                <img src={profile.avatarSrc} alt={profile.name} loading="lazy" decoding="async" />
-              </span>
+            <a 
+              className="agrid__cell agrid__cell--wide" 
+              href="https://www.klika.com.au" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
               <span className="agrid__cell-copy">
-                <span className="agrid__cell-title">React & TypeScript</span>
-                <span className="agrid__cell-meta">Core Tech Stack</span>
+                <span className="agrid__cell-title">Klika Australia</span>
+                <span className="agrid__cell-meta">Operations & Marketing Manager</span>
               </span>
-            </span>
+              <ArrowUpRight className="agrid__cell-go" size={15} weight="bold" aria-hidden="true" />
+            </a>
 
             <span className="agrid__cell">
               <span className="agrid__cell-mark">
@@ -121,28 +117,12 @@ export default function AboutGrid() {
               </span>
               <span className="agrid__cell-copy">
                 <span className="agrid__cell-title">{profile.location}</span>
-                <span className="agrid__cell-meta">PHT (UTC+8)</span>
+                <span className="agrid__cell-meta">GMT+8 (PHT)</span>
               </span>
             </span>
-
-{/* Klika Affiliation Cell - ONLY ON ABOUT PAGE */}
-            <a 
-              className="agrid__cell agrid__cell--wide" 
-              href="https://www.klika.com.au" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              <span className="agrid__cell-mark agrid__cell-mark--plain">
-                <img src="/ai/klika-logo.png" alt="Klika Australia" loading="lazy" decoding="async" />
-              </span>
-              <span className="agrid__cell-copy">
-                <span className="agrid__cell-title">Klika Australia</span>
-                <span className="agrid__cell-meta">Operations & Marketing Manager</span>
-              </span>
-              <ArrowUpRight className="agrid__cell-go" size={15} weight="bold" aria-hidden="true" />
-            </a>
           </div>
         </div>
+
 
         <div className="agrid__portrait">
           <img
