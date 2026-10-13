@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { SealCheck, CaretRight, Play, Stack, Coffee } from '@/components/slab'
 import { profile } from '@/data/profile'
 import QuickMenu from './QuickMenu'
+import { PHT } from './PHT'
 
 /**
  * Home on a phone, the parts the rail and the bento used to carry:
@@ -26,6 +27,10 @@ export function HomeProfile() {
         <span className="hprofile__handle">
           {profile.handle} · {profile.role}
         </span>
+        {/* --- LIVE PHT CLOCK FOR MOBILE --- */}
+        <div className="mt-1">
+          <PHT />
+        </div>
       </div>
       <QuickMenu className="hprofile__menu" />
     </header>
