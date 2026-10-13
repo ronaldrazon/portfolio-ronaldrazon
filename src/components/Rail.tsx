@@ -67,7 +67,7 @@ export default function Rail() {
         <div style={{ marginTop: '8px', marginBottom: '12px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
           <PHT />
           <img 
-            src="https://hits.sh/portfolio.ronaldrazon.com.svg?style=flat-square&label=Visits&color=10b981&labelColor=1f2937" 
+            src="https://hits.sh/portfolio.ronaldrazon.com.svg?label=Visits&color=10b981&labelColor=1f2937&v=1" 
             alt="Visitor count" 
             height="20"
             style={{ height: '20px', display: 'block' }}

@@ -32,7 +32,7 @@ export function HomeProfile() {
         <div style={{ marginTop: '4px', display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
           <PHT />
           <img 
-            src="https://hits.sh/portfolio.ronaldrazon.com.svg?style=flat-square&label=Visits&color=10b981&labelColor=1f2937" 
+            src="https://hits.sh/portfolio.ronaldrazon.com.svg?label=Visits&color=10b981&labelColor=1f2937&v=1" 
             alt="Visitor count" 
             height="18"
             style={{ height: '18px', display: 'inline-block' }}
