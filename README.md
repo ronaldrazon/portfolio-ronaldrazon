@@ -68,6 +68,7 @@ To regenerate the placeholder pages: `node scripts/make-placeholder-sites.mjs`.
 - Contour background technique inspired by the landonorris.com site by OFF+BRAND. The simplex noise is Ashima Arts / Ian McEwan (MIT).
 - Icons: [Phosphor](https://phosphoricons.com) (MIT). Tool logos in `public/icons/` are trademarks of their owners and are included as examples only.
 - Font: Poppins (SIL Open Font License).
+- Built using the [Portfolio Template](https://github.com/brewed-ops/portfolio-template) by brewed-ops.
 
 ## License
 
