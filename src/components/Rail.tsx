@@ -64,11 +64,11 @@ export default function Rail() {
         </p>
 
 {/* --- LIVE PHT CLOCK & VISITOR COUNTER (DESKTOP) --- */}
-        <div className="hidden lg:flex flex-col items-center gap-1.5 mt-2 mb-3">
+        <div className="mt-2 mb-3 flex flex-col items-center gap-1.5">
           <PHT />
           <img 
-            src="https://hits.sh/portfolio.ronaldrazon.com.svg?style=flat-square&label=views&color=10b981&labelColor=1f2937" 
-            alt="visits" 
+            src="https://hits.sh/portfolio.ronaldrazon.com.svg?style=flat-square&label=Visits&color=10b981&labelColor=1f2937" 
+            alt="Visitor count" 
             className="h-4 opacity-90"
           />
         </div>

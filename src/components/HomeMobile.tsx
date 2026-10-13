@@ -28,16 +28,16 @@ export function HomeProfile() {
           {profile.handle} · {profile.role}
         </span>
         
-        {/* --- LIVE PHT CLOCK & VISITOR COUNTER (MOBILE ONLY) --- */}
-        <div className="flex lg:hidden flex-wrap items-center gap-2 mt-1">
+{/* --- LIVE PHT CLOCK & VISITOR COUNTER (MOBILE) --- */}
+        <div className="mt-1 flex flex-wrap items-center gap-2">
           <PHT />
           <img 
-            src="https://hits.sh/portfolio.ronaldrazon.com.svg?style=flat-square&label=views&color=10b981&labelColor=1f2937" 
-            alt="visits" 
+            src="https://hits.sh/portfolio.ronaldrazon.com.svg?style=flat-square&label=Visits&color=10b981&labelColor=1f2937" 
+            alt="Visitor count" 
             className="h-4 opacity-90"
           />
         </div>
-      </div>
+
       <QuickMenu className="hprofile__menu" />
     </header>
   )
