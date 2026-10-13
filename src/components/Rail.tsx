@@ -44,7 +44,7 @@ export default function Rail() {
   useEffect(() => setThemeState(getTheme()), [])
 
   return (
-    <aside className="rail" aria-label="Profile and site navigation">
+<aside className="rail" aria-label="Profile and site navigation">
       <div className="rail__inner">
         <span className="rail__avatar">
           <img
@@ -59,8 +59,12 @@ export default function Rail() {
           {profile.name}
           <SealCheck size={19} weight="fill" aria-label={profile.verifiedLabel} />
         </h2>
+        
         <p className="rail__handle">
           {profile.handle}
+        </p>
+        <p className="rail__role text-xs text-neutral-400 mt-1">
+          {profile.role}
         </p>
 
 {/* --- LIVE PHT CLOCK & VISITOR COUNTER --- */}
