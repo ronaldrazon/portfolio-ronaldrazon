@@ -63,18 +63,13 @@ export default function Rail() {
           {profile.handle}
         </p>
 
-        {/* --- LIVE PHT CLOCK (MOVED BELOW HANDLE) --- */}
-        <div className="mt-2 mb-3 flex items-center justify-center">
-          <PHT />
-        </div>
-
 {/* --- LIVE PHT CLOCK & VISITOR COUNTER (DESKTOP) --- */}
-        <div className="mt-2 mb-3 flex flex-wrap items-center justify-center gap-2">
+        <div className="hidden lg:flex flex-col items-center gap-1.5 mt-2 mb-3">
           <PHT />
           <img 
-            src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fportfolio.ronaldrazon.com&count_bg=%2310B981&title_bg=%231F2937&icon=&icon_color=%23E7E7E7&title=views&edge_flat=true" 
-            alt="Visitor count" 
-            className="h-4 opacity-90 hover:opacity-100 transition-opacity"
+            src="https://hits.sh/portfolio.ronaldrazon.com.svg?style=flat-square&label=views&color=10b981&labelColor=1f2937" 
+            alt="visits" 
+            className="h-4 opacity-90"
           />
         </div>
 

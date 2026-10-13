@@ -27,12 +27,13 @@ export function HomeProfile() {
         <span className="hprofile__handle">
           {profile.handle} · {profile.role}
         </span>
-        {/* --- LIVE PHT CLOCK & VISITOR COUNTER (MOBILE) --- */}
-        <div className="mt-1 flex flex-wrap items-center gap-2">
+        
+        {/* --- LIVE PHT CLOCK & VISITOR COUNTER (MOBILE ONLY) --- */}
+        <div className="flex lg:hidden flex-wrap items-center gap-2 mt-1">
           <PHT />
           <img 
-            src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fportfolio.ronaldrazon.com&count_bg=%2310B981&title_bg=%231F2937&icon=&icon_color=%23E7E7E7&title=views&edge_flat=true" 
-            alt="Visitor count" 
+            src="https://hits.sh/portfolio.ronaldrazon.com.svg?style=flat-square&label=views&color=10b981&labelColor=1f2937" 
+            alt="visits" 
             className="h-4 opacity-90"
           />
         </div>
