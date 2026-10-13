@@ -27,16 +27,8 @@ export function HomeProfile() {
         <span className="hprofile__handle">
           {profile.handle} · {profile.role}
         </span>
-        
-        {/* LIVE PHT CLOCK & VISITOR COUNTER (MOBILE) */}
-        <div style={{ marginTop: '4px', display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+        <div className="mt-1">
           <PHT />
-          <img 
-            src="https://hits.sh/portfolio.ronaldrazon.com.svg?label=Visits&color=10b981&labelColor=1f2937&v=1" 
-            alt="Visitor count" 
-            height="18"
-            style={{ height: '18px', display: 'inline-block' }}
-          />
         </div>
       </div>
       <QuickMenu className="hprofile__menu" />

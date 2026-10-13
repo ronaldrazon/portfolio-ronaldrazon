@@ -63,15 +63,9 @@ export default function Rail() {
           {profile.handle}
         </p>
 
-{/* --- LIVE PHT CLOCK & VISITOR COUNTER (DESKTOP) --- */}
-        <div style={{ marginTop: '8px', marginBottom: '12px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
+{/* --- LIVE PHT CLOCK & VISITOR COUNTER --- */}
+        <div className="mt-2 mb-3 flex items-center justify-center">
           <PHT />
-          <img 
-            src="https://hits.sh/portfolio.ronaldrazon.com.svg?label=Visits&color=10b981&labelColor=1f2937&v=1" 
-            alt="Visitor count" 
-            height="20"
-            style={{ height: '20px', display: 'block' }}
-          />
         </div>
 
         <div className="rail__actions">
