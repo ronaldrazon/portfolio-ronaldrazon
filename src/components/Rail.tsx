@@ -13,6 +13,7 @@ import {
 } from './RailIcons'
 import { getTheme, toggleTheme, type Theme } from '@/lib/theme'
 import { profile } from '@/data/profile'
+import { PHT } from './PHT'
 
 /**
  * The profile rail: the fixed left column of the shell. It carries identity,
@@ -64,23 +65,23 @@ export default function Rail() {
 
         <div className="rail__actions">
           <ul className="rail__socials" role="list" aria-label="Social profiles">
-          {profile.socials.map(({ label, href, iconPath }) => (
-            <li key={label}>
-              <a
-                className="rail__social"
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={label}
-              >
-                {/* Single-colour silhouettes, tinted by currentColor through a
-                    CSS mask - same technique as the hero's social row. */}
-                <span
-                  className="rail__social-icon"
-                  style={{ ['--icon-url' as string]: `url('${iconPath}')` }}
-                  aria-hidden="true"
-                />
-              </a>
+            {profile.socials.map(({ label, href, iconPath }) => (
+              <li key={label}>
+                <a
+                  className="rail__social"
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                >
+                  {/* Single-colour silhouettes, tinted by currentColor through a
+                      CSS mask - same technique as the hero's social row. */}
+                  <span
+                    className="rail__social-icon"
+                    style={{ ['--icon-url' as string]: `url('${iconPath}')` }}
+                    aria-hidden="true"
+                  />
+                </a>
               </li>
             ))}
           </ul>
@@ -107,6 +108,11 @@ export default function Rail() {
             ))}
           </ul>
         </nav>
+
+        {/* --- LIVE PHT CLOCK PLACEMENT --- */}
+        <div className="my-4 flex items-center justify-center">
+          <PHT />
+        </div>
 
         <p className="rail__copy">
           &copy; {new Date().getFullYear()}
