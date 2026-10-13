@@ -28,7 +28,7 @@ export function HomeProfile() {
           {profile.handle} · {profile.role}
         </span>
         
-{/* --- LIVE PHT CLOCK & VISITOR COUNTER (MOBILE) --- */}
+        {/* LIVE PHT CLOCK & VISITOR COUNTER (MOBILE) */}
         <div style={{ marginTop: '4px', display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
           <PHT />
           <img 
@@ -38,7 +38,7 @@ export function HomeProfile() {
             style={{ height: '18px', display: 'inline-block' }}
           />
         </div>
-
+      </div>
       <QuickMenu className="hprofile__menu" />
     </header>
   )
@@ -91,7 +91,6 @@ export function HomeExplore() {
         ))}
       </ul>
 
-      {/* A header that links carries its chevron on the title itself. */}
       <div className="hsec">
         <h2 className="hsec__title">
           <Link to="/testimonials" className="hsec__link">
