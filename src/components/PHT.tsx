@@ -4,7 +4,7 @@ export function PHT() {
   const [time, setTime] = useState<string>('');
   const [visits, setVisits] = useState<string | null>(null);
 
-  // Time ticker
+  // Real-time PHT clock ticker
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
@@ -23,18 +23,40 @@ export function PHT() {
     return () => clearInterval(timer);
   }, []);
 
-  // Fetch visit count as a number
+  // Fetch live visits count from hits.sh API
   useEffect(() => {
-    fetch('https://hits.sh/portfolio.ronaldrazon.com.json')
-      .then((res) => res.json())
-      .then((data) => {
-        if (data && data.hits) {
-          setVisits(data.hits.toLocaleString());
+    let isMounted = true;
+
+    async function fetchVisits() {
+      try {
+        const response = await fetch('https://hits.sh/portfolio.ronaldrazon.com.json', {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json',
+          },
+        });
+
+        if (!response.ok) throw new Error('API fetch failed');
+
+        const data = await response.json();
+        const count = data?.hits ?? data?.value ?? data?.count;
+
+        if (isMounted && count !== undefined) {
+          setVisits(Number(count).toLocaleString());
         }
-      })
-      .catch(() => {
-        // Fallback silently if API is unreachable
-      });
+      } catch (error) {
+        // Fallback display if API endpoint is restricted or offline
+        if (isMounted) {
+          setVisits(null);
+        }
+      }
+    }
+
+    fetchVisits();
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return (
