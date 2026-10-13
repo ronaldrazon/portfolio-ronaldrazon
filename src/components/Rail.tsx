@@ -63,6 +63,11 @@ export default function Rail() {
           {profile.handle}
         </p>
 
+        {/* --- LIVE PHT CLOCK (MOVED BELOW HANDLE) --- */}
+        <div className="mt-2 mb-3 flex items-center justify-center">
+          <PHT />
+        </div>
+
         <div className="rail__actions">
           <ul className="rail__socials" role="list" aria-label="Social profiles">
             {profile.socials.map(({ label, href, iconPath }) => (
@@ -108,11 +113,6 @@ export default function Rail() {
             ))}
           </ul>
         </nav>
-
-        {/* --- LIVE PHT CLOCK PLACEMENT --- */}
-        <div className="my-4 flex items-center justify-center">
-          <PHT />
-        </div>
 
         <p className="rail__copy">
           &copy; {new Date().getFullYear()}
