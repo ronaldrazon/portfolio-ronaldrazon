@@ -56,7 +56,7 @@ export const profile: Profile = {
   
   socials: [
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/ronaldrazon/', iconPath: '/icons/linkedin.svg' },
-    { label: 'GitHub', href: 'https://github.com/ronaldrazon', iconPath: '/icons/github.svg' },
+    { label: 'GitHub', href: 'https://github.com/ronaldrazon', iconPath: '/icons/github-logo.svg' },
     { label: 'Email', href: 'mailto:work@ronaldrazon.com', iconPath: '/icons/discord.svg' },
   ],
 }
