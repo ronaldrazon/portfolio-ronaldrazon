@@ -7,11 +7,6 @@ import { profile } from '@/data/profile'
  *
  * One glass sheet, two columns: who you are on the left, the illustration
  * on the right. Sized to the panel, so nothing here scrolls.
- *
- * The left column is a ladder, not a paragraph block: one display statement,
- * one line of context, then the four things you do - each carrying the marks
- * of the tools it is built with. The tools are the proof, so they are the
- * visual. Swap the marks below for your own (any square SVG/PNG in public/).
  */
 
 const N8N = { src: '/icons/ai/n8n.svg', name: 'n8n' }
@@ -38,22 +33,22 @@ type Capability = {
 const CAPABILITIES: Capability[] = [
   {
     index: '01',
-    title: 'Your role 1',
+    title: 'Workflow Automation & DevOps',
     marks: [N8N, ZAPIER, DOCKER],
   },
   {
     index: '02',
-    title: 'Your role 2',
+    title: 'AI Engineering & LLM Integration',
     marks: [CLAUDE, CODEX, GLM, QWEN, HERMES],
   },
   {
     index: '03',
-    title: 'Your role 3',
+    title: 'Full-Stack Web Development & Infrastructure',
     marks: [CLAUDE, CODEX, NAMECHEAP, CLOUDFLARE, GITHUB],
   },
   {
     index: '04',
-    title: 'Your role 4',
+    title: 'Operations & Business Productivity Tools',
     marks: [GWS, SLACK, FIREFLIES],
   },
 ]
@@ -67,24 +62,23 @@ export default function AboutGrid() {
           {`Hi, I’m ${profile.firstName}.`}
         </h1>
         <p className="pgrid__lede">
-          PLACEHOLDER - tell me what to put here: one line on what you do.
+          Full-Stack Developer & AI Systems Engineer building scalable web applications.
         </p>
       </header>
 
       <div className="home__glass agrid__glass">
         <div className="agrid__copy">
           <p className="agrid__lead">
-            Your big statement goes here, in one or two lines.
-            <span> A softer second half that finishes the thought.</span>
+            I engineer fast, resilient web applications and intelligent automated systems.
+            <span> Bridging modern UI development with AI-driven operations.</span>
           </p>
 
           <p className="agrid__note">
-            <strong>Your company name</strong>, and{' '}
-            <a className="agrid__link" href="#">
-              your product
+            <strong>Full-Stack Development</strong> &{' '}
+            <a className="agrid__link" href="https://github.com/ronaldrazon" target="_blank" rel="noopener noreferrer">
+              Automated Workflows
             </a>{' '}
-            - PLACEHOLDER - tell me what to put here: two sentences on your company, what
-            you sell or build, and who it is for.
+            — Specializing in React, TypeScript, cloud deployments, and custom AI integrations that streamline business operations.
           </p>
 
           <ul className="agrid__caps" role="list">
@@ -109,15 +103,15 @@ export default function AboutGrid() {
             ))}
           </ul>
 
-          {/* One plate, two cells sharing a mark / title / meta anatomy. */}
+          {/* Bottom metadata grid */}
           <div className="agrid__bar">
             <span className="agrid__cell">
               <span className="agrid__cell-mark agrid__cell-mark--img">
-                <img src="/placeholders/badge.svg" alt="" loading="lazy" decoding="async" />
+                <img src={profile.avatarSrc} alt={profile.name} loading="lazy" decoding="async" />
               </span>
               <span className="agrid__cell-copy">
-                <span className="agrid__cell-title">Credential name</span>
-                <span className="agrid__cell-meta">Credential ID</span>
+                <span className="agrid__cell-title">React & TypeScript</span>
+                <span className="agrid__cell-meta">Core Tech Stack</span>
               </span>
             </span>
 
@@ -127,17 +121,23 @@ export default function AboutGrid() {
               </span>
               <span className="agrid__cell-copy">
                 <span className="agrid__cell-title">{profile.location}</span>
-                <span className="agrid__cell-meta">Timezone · working hours</span>
+                <span className="agrid__cell-meta">PHT (UTC+8)</span>
               </span>
             </span>
 
-            <a className="agrid__cell agrid__cell--wide" href="#">
+{/* Klika Affiliation Cell - ONLY ON ABOUT PAGE */}
+            <a 
+              className="agrid__cell agrid__cell--wide" 
+              href="https://www.klika.com.au" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
               <span className="agrid__cell-mark agrid__cell-mark--plain">
-                <img src="/placeholders/logo.svg" alt="" loading="lazy" decoding="async" />
+                <img src="/ai/klika-logo.png" alt="Klika Australia" loading="lazy" decoding="async" />
               </span>
               <span className="agrid__cell-copy">
-                <span className="agrid__cell-title">Community or affiliation</span>
-                <span className="agrid__cell-meta">Your role there</span>
+                <span className="agrid__cell-title">Klika Australia</span>
+                <span className="agrid__cell-meta">Operations & Marketing Manager</span>
               </span>
               <ArrowUpRight className="agrid__cell-go" size={15} weight="bold" aria-hidden="true" />
             </a>
@@ -146,8 +146,8 @@ export default function AboutGrid() {
 
         <div className="agrid__portrait">
           <img
-            src="/avatar.svg"
-            alt="Portrait placeholder"
+            src={profile.avatarSrc}
+            alt={profile.name}
             loading="eager"
             decoding="async"
             width={400}
