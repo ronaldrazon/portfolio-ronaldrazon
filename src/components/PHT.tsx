@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 
 export function PHT() {
   const [time, setTime] = useState<string>('');
-  const [visits, setVisits] = useState<string>('128');
 
   // Real-time PHT clock ticker (Asia/Manila)
   useEffect(() => {
@@ -23,31 +22,6 @@ export function PHT() {
     return () => clearInterval(timer);
   }, []);
 
-  // Fetch live visit count from internal Vercel API endpoint
-  useEffect(() => {
-    let isMounted = true;
-
-    async function fetchVisits() {
-      try {
-        const res = await fetch('/api/visits');
-        if (!res.ok) throw new Error('API request failed');
-
-        const data = await res.json();
-        if (isMounted && data?.visits !== undefined) {
-          setVisits(Number(data.visits).toLocaleString());
-        }
-      } catch (err) {
-        // Fallback silently if offline or during local static builds
-      }
-    }
-
-    fetchVisits();
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
-
   return (
     <div className="flex items-center text-xs font-mono text-neutral-400">
       <span className="relative flex h-2 w-2 mr-1.5">
@@ -56,10 +30,6 @@ export function PHT() {
       </span>
       <span>
         <strong className="font-semibold text-neutral-200">{time || 'Loading...'}</strong> in the Philippines
-      </span>
-      <span>{' · '}</span>
-      <span>
-        <strong className="font-semibold text-neutral-200">{visits}</strong> visits
       </span>
     </div>
   );
