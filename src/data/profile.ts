@@ -49,7 +49,7 @@ export const profile: Profile = {
   },
   
   hero: {
-    body: 'Marketing & Operations Manager bridging the gap between strategic growth initiatives and efficient day-to-day execution. I build scalable processes and data-driven campaigns that drive results.',
+    body: 'Bridging the gap between strategic growth initiatives and efficient day-to-day execution. I build scalable processes and data-driven campaigns that drive results.',
     portraitSrc: '/avatar.png',
     portraitAlt: 'Ronald Razon',
   },

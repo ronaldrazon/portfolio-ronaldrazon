@@ -23,22 +23,22 @@ export function PHT() {
     return () => clearInterval(timer);
   }, []);
 
-  // Fetch live visit count with persistent local fallback
+  // Fetch live stats from Counter.dev via proxy
   useEffect(() => {
     let isMounted = true;
 
     async function fetchVisits() {
       try {
-        const res = await fetch(
-          'https://api.countapi.xyz/hit/portfolio.ronaldrazon.com/visits'
-        );
-        if (!res.ok) throw new Error('Network response was not ok');
-        const data = await res.json();
+        const targetUrl = encodeURIComponent('https://counter.dev/api/v1/7b795f10-9616-476e-9bb8-5874e3acb7aa/summary');
+        const res = await fetch(`https://corsproxy.io/?${targetUrl}`);
+        if (!res.ok) throw new Error('Proxy fetch failed');
 
-        if (isMounted && data && typeof data.value === 'number') {
-          setVisits(data.value.toLocaleString());
-          localStorage.setItem('cached_visits', data.value.toString());
-          return;
+        const data = await res.json();
+        const total = data?.pageviews ?? data?.visitors ?? data?.count;
+
+        if (isMounted && total !== undefined && total !== null) {
+          setVisits(Number(total).toLocaleString());
+          localStorage.setItem('cached_visits', total.toString());
         }
       } catch (err) {
         if (isMounted) {
