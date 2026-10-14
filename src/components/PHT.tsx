@@ -23,31 +23,24 @@ export function PHT() {
     return () => clearInterval(timer);
   }, []);
 
-  // Fetch live visit count from Counter.dev API
+  // Fetch & increment live visit count via CounterAPI
   useEffect(() => {
     let isMounted = true;
 
     async function fetchVisits() {
       try {
+        // Hits CounterAPI for your domain portfolio.ronaldrazon.com
         const response = await fetch(
-          'https://counter.dev/api/v1/7b795f10-9616-476e-9bb8-5874e3acb7aa/summary',
-          {
-            method: 'GET',
-            headers: {
-              'Accept': 'application/json',
-            },
-          }
+          'https://api.counterapi.dev/v1/portfolio.ronaldrazon.com/visits/up'
         );
 
-        if (!response.ok) throw new Error('Counter.dev fetch failed');
+        if (!response.ok) throw new Error('CounterAPI request failed');
 
         const data = await response.json();
         
-        // Counter.dev summary JSON returns pageviews / visitors
-        const count = data?.pageviews ?? data?.visitors ?? data?.count;
-
-        if (isMounted && count !== undefined && count !== null) {
-          setVisits(Number(count).toLocaleString());
+        // Response format: { "count": 124 }
+        if (isMounted && data && data.count !== undefined) {
+          setVisits(Number(data.count).toLocaleString());
         }
       } catch (error) {
         if (isMounted) {
