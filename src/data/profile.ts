@@ -31,9 +31,9 @@ export const profile: Profile = {
   name: 'Ronald Razon',
   firstName: 'Ronald',
   handle: '@ronaldrazon',
-  role: 'Operations & Marketing Manager',
+  role: 'Marketing & Operations Manager',
   avatarSrc: '/avatar.png',
-  verifiedLabel: 'Operations & Marketing Professional',
+  verifiedLabel: 'Marketing &  Professional',
   email: 'work@ronaldrazon.com',
   location: 'Metro Manila, Philippines (GMT+8)',
   
@@ -49,7 +49,7 @@ export const profile: Profile = {
   },
   
   hero: {
-    body: 'Operations & Marketing Manager bridging the gap between strategic growth initiatives and efficient day-to-day execution. I build scalable processes and data-driven campaigns that drive results.',
+    body: 'Marketing & Operations Manager bridging the gap between strategic growth initiatives and efficient day-to-day execution. I build scalable processes and data-driven campaigns that drive results.',
     portraitSrc: '/avatar.png',
     portraitAlt: 'Ronald Razon',
   },

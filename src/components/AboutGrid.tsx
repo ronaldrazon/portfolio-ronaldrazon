@@ -59,7 +59,7 @@ export default function AboutGrid() {
           Hi, I’m Ron.
         </h1>
         <p className="pgrid__lede">
-          Operations & Marketing Operations specialist focused on scaling e-commerce systems and streamlining workflows.
+          Marketing & Operations specialist focused on scaling e-commerce systems and streamlining workflows.
         </p>
       </header>
 
@@ -106,7 +106,7 @@ export default function AboutGrid() {
             >
               <span className="agrid__cell-copy">
                 <span className="agrid__cell-title">Klika Australia</span>
-                <span className="agrid__cell-meta">Operations & Marketing Manager</span>
+                <span className="agrid__cell-meta">Marketing & Operations Manager</span>
               </span>
               <ArrowUpRight className="agrid__cell-go" size={15} weight="bold" aria-hidden="true" />
             </a>
