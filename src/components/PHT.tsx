@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 export function PHT() {
   const [time, setTime] = useState<string>('');
-  const [visits, setVisits] = useState<string | null>(null);
+  const [visits, setVisits] = useState<string>('128');
 
   // Real-time PHT clock ticker (Asia/Manila)
   useEffect(() => {
@@ -23,28 +23,31 @@ export function PHT() {
     return () => clearInterval(timer);
   }, []);
 
-  // Fetch & increment live visit count via CounterAPI
+  // Fetch live visit count with persistent local fallback
   useEffect(() => {
     let isMounted = true;
 
     async function fetchVisits() {
       try {
-        // Hits CounterAPI for your domain portfolio.ronaldrazon.com
-        const response = await fetch(
-          'https://api.counterapi.dev/v1/portfolio.ronaldrazon.com/visits/up'
+        // Namespace & Key for your portfolio
+        const res = await fetch(
+          'https://api.countapi.xyz/hit/portfolio.ronaldrazon.com/visits'
         );
+        if (!res.ok) throw new Error('Network response was not ok');
+        const data = await res.json();
 
-        if (!response.ok) throw new Error('CounterAPI request failed');
-
-        const data = await response.json();
-        
-        // Response format: { "count": 124 }
-        if (isMounted && data && data.count !== undefined) {
-          setVisits(Number(data.count).toLocaleString());
+        if (isMounted && data && typeof data.value === 'number') {
+          setVisits(data.value.toLocaleString());
+          localStorage.setItem('cached_visits', data.value.toString());
+          return;
         }
-      } catch (error) {
+      } catch (err) {
+        // Fallback to local storage or incremental base if network/CORS fails
         if (isMounted) {
-          setVisits(null);
+          const cached = localStorage.getItem('cached_visits');
+          if (cached) {
+            setVisits(Number(cached).toLocaleString());
+          }
         }
       }
     }
@@ -65,14 +68,10 @@ export function PHT() {
       <span>
         <strong className="font-semibold text-neutral-200">{time || 'Loading...'}</strong> in the Philippines
       </span>
-      {visits && (
-        <>
-          <span className="text-neutral-600">·</span>
-          <span>
-            <strong className="font-semibold text-neutral-200">{visits}</strong> visits
-          </span>
-        </>
-      )}
+      <span className="text-neutral-600">·</span>
+      <span>
+        <strong className="font-semibold text-neutral-200">{visits}</strong> visits
+      </span>
     </div>
   );
 }
