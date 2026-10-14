@@ -16,15 +16,7 @@ import { profile } from '@/data/profile'
 import { PHT } from './PHT'
 
 /**
- * The profile rail: the fixed left column of the shell. It carries identity,
- * the theme switch and the section index, and it is the site's only navigation
- * surface from 1100px up - the floating NavBar pill hides there and takes over
- * again below it.
- *
- * The links are ROUTES, not anchors. Home is a fixed non-scrolling viewport, so
- * there is nothing for a scrollspy to spy on; the panel to the right swaps
- * instead. `NavLink` owns the active state, which is why there is no
- * IntersectionObserver here.
+ * The profile rail: the fixed left column of the shell.
  */
 export const RAIL_LINKS = [
   { label: 'Home', to: '/', Icon: HomeIcon },
@@ -39,12 +31,10 @@ export const RAIL_LINKS = [
 export default function Rail() {
   const [theme, setThemeState] = useState<Theme>('light')
 
-  // The pre-paint script owns the real value; read it once mounted so the
-  // button shows the icon for the action, not for the current state.
   useEffect(() => setThemeState(getTheme()), [])
 
   return (
-<aside className="rail" aria-label="Profile and site navigation">
+    <aside className="rail" aria-label="Profile and site navigation">
       <div className="rail__inner">
         <span className="rail__avatar">
           <img
@@ -67,7 +57,7 @@ export default function Rail() {
           {profile.role}
         </p>
 
-{/* --- LIVE PHT CLOCK & VISITOR COUNTER --- */}
+        {/* --- LIVE PHT CLOCK & VISITOR COUNTER --- */}
         <div className="mt-2 mb-3 flex items-center justify-center">
           <PHT />
         </div>
@@ -83,8 +73,6 @@ export default function Rail() {
                   rel="noopener noreferrer"
                   aria-label={label}
                 >
-                  {/* Single-colour silhouettes, tinted by currentColor through a
-                      CSS mask - same technique as the hero's social row. */}
                   <span
                     className="rail__social-icon"
                     style={{ ['--icon-url' as string]: `url('${iconPath}')` }}

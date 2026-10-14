@@ -5,14 +5,7 @@ import QuickMenu from './QuickMenu'
 import { PHT } from './PHT'
 
 /**
- * Home on a phone, the parts the rail and the bento used to carry:
- *
- *   HomeProfile  avatar, name, verified mark, handle and the QuickMenu
- *                (theme + accessibility) - the rail's identity block, laid flat
- *   HomeStats    three proof facts (profile.stats), each named by a glyph so
- *                it reads at a glance
- *   HomeExplore  one shelf card per rail view in a snap row, then the first
- *                testimonial as a video stage
+ * Home on a phone layout.
  */
 
 export function HomeProfile() {
@@ -51,11 +44,11 @@ export function HomeStats() {
 }
 
 const TILES = [
-  { n: '01', label: 'Projects', to: '/projects', title: 'PLACEHOLDER - projects headline', desc: 'Tell me what to put here.', img: '/placeholders/project-1.jpg' },
-  { n: '02', label: 'Services', to: '/services', title: 'PLACEHOLDER - services headline', desc: 'Tell me what to put here.', Icon: Stack },
-  { n: '03', label: 'Showcase', to: '/showcase', title: 'PLACEHOLDER - your flagship', desc: 'Tell me what to put here.', Icon: Coffee, accent: true },
-  { n: '04', label: 'Testimonials', to: '/testimonials', title: 'PLACEHOLDER - testimonials headline', desc: 'Tell me what to put here.', img: '/placeholders/testimonial-1.jpg' },
-  { n: '05', label: 'About', to: '/about', title: `Hi, I'm ${profile.firstName}.`, desc: 'PLACEHOLDER - one line about you.', img: profile.avatarSrc },
+  { n: '01', label: 'Projects', to: '/projects', title: 'Featured Work', desc: 'Case studies & operations projects.', img: '/placeholders/project-1.jpg' },
+  { n: '02', label: 'Services', to: '/services', title: 'Services & Operations', desc: 'E-commerce, marketing & workflow automation.', Icon: Stack },
+  { n: '03', label: 'Showcase', to: '/showcase', title: 'Highlight Showcase', desc: 'Core operational achievements.', Icon: Coffee, accent: true },
+  { n: '04', label: 'Testimonials', to: '/testimonials', title: 'Recommendations', desc: 'Feedback from teams & clients.', img: '/placeholders/testimonial-1.jpg' },
+  { n: '05', label: 'About', to: '/about', title: `Hi, I'm Ron.`, desc: 'Marketing & Operations Manager.', img: profile.avatarSrc },
 ] as const
 
 export function HomeExplore() {
@@ -91,15 +84,15 @@ export function HomeExplore() {
           </Link>
         </h2>
       </div>
-      <Link to="/testimonials" className="hproof" aria-label="Client testimonial. PLACEHOLDER - a one-line teaser for your best testimonial.">
+      <Link to="/testimonials" className="hproof" aria-label="Client testimonial.">
         <span className="hproof__stage">
           <img src="/placeholders/testimonial-1.jpg" alt="" loading="lazy" />
           <span className="hproof__play" aria-hidden="true"><Play size={20} weight="fill" /></span>
           <span className="hproof__dur" aria-hidden="true">0:00</span>
         </span>
         <span className="hproof__copy">
-          <span className="hproof__title">PLACEHOLDER - tell me what to put here: a one-line teaser for your best testimonial.</span>
-          <span className="hproof__meta">PLACEHOLDER - client role</span>
+          <span className="hproof__title">Delivering operational excellence and growth across digital channels.</span>
+          <span className="hproof__meta">Marketing & Operations Manager</span>
         </span>
       </Link>
 

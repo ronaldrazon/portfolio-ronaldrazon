@@ -4,7 +4,7 @@ export function PHT() {
   const [time, setTime] = useState<string>('');
   const [visits, setVisits] = useState<string | null>(null);
 
-  // Real-time PHT clock ticker
+  // Real-time PHT clock ticker (Asia/Manila)
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
@@ -23,29 +23,33 @@ export function PHT() {
     return () => clearInterval(timer);
   }, []);
 
-  // Fetch live visits count from hits.sh API
+  // Fetch live visit count from Counter.dev API
   useEffect(() => {
     let isMounted = true;
 
     async function fetchVisits() {
       try {
-        const response = await fetch('https://hits.sh/portfolio.ronaldrazon.com.json', {
-          method: 'GET',
-          headers: {
-            'Accept': 'application/json',
-          },
-        });
+        const response = await fetch(
+          'https://counter.dev/api/v1/7b795f10-9616-476e-9bb8-5874e3acb7aa/summary',
+          {
+            method: 'GET',
+            headers: {
+              'Accept': 'application/json',
+            },
+          }
+        );
 
-        if (!response.ok) throw new Error('API fetch failed');
+        if (!response.ok) throw new Error('Counter.dev fetch failed');
 
         const data = await response.json();
-        const count = data?.hits ?? data?.value ?? data?.count;
+        
+        // Counter.dev summary JSON returns pageviews / visitors
+        const count = data?.pageviews ?? data?.visitors ?? data?.count;
 
-        if (isMounted && count !== undefined) {
+        if (isMounted && count !== undefined && count !== null) {
           setVisits(Number(count).toLocaleString());
         }
       } catch (error) {
-        // Fallback display if API endpoint is restricted or offline
         if (isMounted) {
           setVisits(null);
         }
