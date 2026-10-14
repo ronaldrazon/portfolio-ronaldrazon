@@ -23,30 +23,21 @@ export function PHT() {
     return () => clearInterval(timer);
   }, []);
 
-  // Fetch live stats from Counter.dev via proxy
+  // Fetch live visit count from your local Vercel serverless function
   useEffect(() => {
     let isMounted = true;
 
     async function fetchVisits() {
       try {
-        const targetUrl = encodeURIComponent('https://counter.dev/api/v1/7b795f10-9616-476e-9bb8-5874e3acb7aa/summary');
-        const res = await fetch(`https://corsproxy.io/?${targetUrl}`);
-        if (!res.ok) throw new Error('Proxy fetch failed');
+        const res = await fetch('/api/visits');
+        if (!res.ok) throw new Error('API offline');
 
         const data = await res.json();
-        const total = data?.pageviews ?? data?.visitors ?? data?.count;
-
-        if (isMounted && total !== undefined && total !== null) {
-          setVisits(Number(total).toLocaleString());
-          localStorage.setItem('cached_visits', total.toString());
+        if (isMounted && data?.visits) {
+          setVisits(Number(data.visits).toLocaleString());
         }
       } catch (err) {
-        if (isMounted) {
-          const cached = localStorage.getItem('cached_visits');
-          if (cached) {
-            setVisits(Number(cached).toLocaleString());
-          }
-        }
+        // Fallback silently to default baseline
       }
     }
 
