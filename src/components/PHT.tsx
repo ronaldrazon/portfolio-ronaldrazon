@@ -23,21 +23,21 @@ export function PHT() {
     return () => clearInterval(timer);
   }, []);
 
-  // Fetch live visit count from your local Vercel serverless function
+  // Fetch live visit count from internal Vercel API endpoint
   useEffect(() => {
     let isMounted = true;
 
     async function fetchVisits() {
       try {
         const res = await fetch('/api/visits');
-        if (!res.ok) throw new Error('API offline');
+        if (!res.ok) throw new Error('API request failed');
 
         const data = await res.json();
-        if (isMounted && data?.visits) {
+        if (isMounted && data?.visits !== undefined) {
           setVisits(Number(data.visits).toLocaleString());
         }
       } catch (err) {
-        // Fallback silently to default baseline
+        // Fallback silently if offline or during local static builds
       }
     }
 

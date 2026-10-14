@@ -1,9 +1,14 @@
-let count = 0; // Starting baseline
+// In-memory baseline counter for Vercel Serverless Function
+let count = 0;
 
 export default function handler(req, res) {
-  // Enable CORS
+  // Set CORS headers so your frontend can call this endpoint cleanly
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
+
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
 
   if (req.method === 'GET') {
     count += 1;
